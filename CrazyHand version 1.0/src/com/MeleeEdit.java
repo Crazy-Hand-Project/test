@@ -299,6 +299,7 @@ public class MeleeEdit extends JPanel implements ActionListener {
 		// ex.printStackTrace();
 		// }
 
+		MeleeEdit.updateAttributes();
 	}
 	
 	public static void openScriptEditor(){
