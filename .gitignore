@@ -1,3 +1,5 @@
 *.dat
 *.prefs
 *.classpath
+/bin/
+.project
