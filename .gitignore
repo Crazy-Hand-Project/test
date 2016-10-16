@@ -2,4 +2,11 @@
 *.prefs
 *.classpath
 /bin/
+
 .project
+*.anm
+*.png
+*.dat
+def/
+codes/
+*.cfg
