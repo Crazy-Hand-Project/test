@@ -299,6 +299,7 @@ public class MeleeEdit extends JPanel implements ActionListener {
 		// ex.printStackTrace();
 		// }
 
+		MeleeEdit.updateAttributes();
 	}
 	
 	public static void openScriptEditor(){
@@ -532,7 +533,14 @@ public class MeleeEdit extends JPanel implements ActionListener {
 		FileIO.init();
 		FileIO.setPosition(Character.characters[MeleeEdit.selected].offset);
 		for (int i = 0; i < Attribute.attributes.length; i++) {
-			attributeTable.setValueAt(FileIO.readFloat(), i, 1);
+			if(i != 22){// Index for "Number of Jumps" attribute
+				float f = FileIO.readFloat();
+				attributeTable.setValueAt(f, i, 1);
+			}else{
+				int i1 = FileIO.readInt();
+				attributeTable.setValueAt(i1, i, 1);
+				attributeTable.setValueAt("(Integer values only!) Numbers higher than the game expects seem to allow infinite jumps.", i, 2);
+			}
 		}
 	}
 	

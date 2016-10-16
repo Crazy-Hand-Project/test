@@ -614,7 +614,11 @@ public class FileIO {
 		if(MeleeEdit.selectedMenu==MeleeEdit.MENU_ATTRIBUTES){
 			f.position(Character.characters[MeleeEdit.selected].offset);
 			for (int i = 0; i < Attribute.attributes.length; i++) {
-				f.putFloat((float) MeleeEdit.attributeTable.getValueAt(i, 1));
+				if(i != 22){ // Index for "Number of Jumps" attribute
+					f.putFloat((float) MeleeEdit.attributeTable.getValueAt(i, 1));
+				}else{
+					f.putInt(Math.round((float) MeleeEdit.attributeTable.getValueAt(i, 1)));
+				}
 			}
 		}//This is a bit messy at the moment, but it's fully functional.
 		 //Basically, this just goes through the list of special attributes and
